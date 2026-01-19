@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse #Necesario para poder responder al cliente
 from HolaMundo.models import Author
 from HolaMundo.models import Book
+from HolaMundo.forms import AuthorForm
 
 # Create your views here.
 #forma de responder al cliente cuando hace un http
@@ -20,5 +21,11 @@ def author (request):
 def book (request): 
     book = Book.objects.all()
     return render(request, "book.html", {'books':book})
+
+def author_create (request):
+    return render(request, 'author.html', {'author_form': AuthorForm}) #Si tenemos las páginas dentro de alguna
+# carpeta dentro de template, entonces habría que especificar el nombre de la carpeta Ej:
+# return render(request, 'nombre_carpeta/create_autor.html')
+
 
 
