@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ismael Gonzalez Tempa</title>
 </head>
 <body>
     <h1>Esta es la pagina de index</h1>
+    <ul>
+        {% for aut in authors %}
+            <li>{{ aut }}</li> 
+        {% endfor %}
+    </ul>
 </body>
 </html>

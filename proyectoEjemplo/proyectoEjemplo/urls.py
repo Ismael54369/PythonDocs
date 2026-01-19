@@ -23,5 +23,5 @@ urlpatterns = [
     #ruta, añadimos a la lista de url, la nuestra, con hola, como nombre de ruta, y nuestro
     #nombre de vista.
     path('admin/', admin.site.urls),
-    path('otramas/', views.home)
+    path('index/', views.home)
 ]
