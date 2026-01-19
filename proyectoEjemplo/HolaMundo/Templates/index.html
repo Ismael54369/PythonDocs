@@ -1,16 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ismael Gonzalez Tempa</title>
+    <title>{%block title%} Blog de autores y libros {%endblock title%}</title>
+    {%block css%}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {%endblock css%}
 </head>
 <body>
-    <h1>Esta es la pagina de index</h1>
-    <ul>
-        {% for aut in authors %}
-            <li>{{ aut }}</li> 
-        {% endfor %}
-    </ul>
+    <div class="container">
+        {%block menu%}
+        <nav>
+            <ul>
+                <li><a href="/author/">Autores</a></li>
+                <li><a href="/book/">Libros</a></li>
+            </ul>
+        </nav>
+        {%endblock menu%}
+        {%block content%}
+        {%endblock content%}
+    </div>
 </body>
 </html>

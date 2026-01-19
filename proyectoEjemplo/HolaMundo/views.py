@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse #Necesario para poder responder al cliente
 from HolaMundo.models import Author
+from HolaMundo.models import Book
 
 # Create your views here.
 #forma de responder al cliente cuando hace un http
@@ -10,6 +11,14 @@ def hola_mundo (request): # El request captura las peticiones de los clientes
 #aplicación
 
 def home (request): # Pinta una página con render, también hay que darlo de alta en urls.py
+    return render(request, "index.html")
+
+def author (request): 
     author = Author.objects.all() #Devolver todos los registros de la tabla Author
-    return render(request, "index.html", {'authors':author})
+    return render(request, "author.html", {'authors':author})
+
+def book (request): 
+    book = Book.objects.all()
+    return render(request, "book.html", {'books':book})
+
 

@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%} Listado de Libros {%endblock title%}Books</title>
+</head>
+<body>
+    {%block content%}
+    <table>
+        <thead>
+            <th>Titulo</th>
+            <th>Codigo</th>
+            <th>Autor</th>
+        </thead>
+        <tbody>
+            {% for bo in books %}
+            <tr>
+                <td>{{ bo.title }} </td>
+                <td>{{ bo.cod }}</td>
+                <td>{% for au in bo.author.all %}
+                {{au}}
+                {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {%endblock content%}
+</body>
+</html>
